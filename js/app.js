@@ -9,6 +9,14 @@ class Despesa{
     }
 }
 
+class Bd{
+    gravar(d){
+        localStorage.setItem("despesa", JSON.stringify(d))
+    }
+}
+
+let bd = new Bd()
+
 function cadastrarDespesa(){
     let ano = document.getElementById("ano")
     let mes = document.getElementById("mes")
@@ -25,9 +33,7 @@ function cadastrarDespesa(){
         descricao.value, 
         valor.value
     )
-    gravar(despesa)
+
+    bd.gravar(despesa)
 }
 
-function gravar(d){
-    localStorage.setItem("despesa", JSON.stringify(d))
-}
